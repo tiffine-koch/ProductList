@@ -23,4 +23,16 @@ router.post('/', function(req, res) {
   });
 });
 
+router.get('/:itemID', function(req,res) {
+
+  Item.find({_id: req.params.itemID }, function(err, items) {
+  console.log('items:', items);
+  res.send(items);
+  // Item.findOne({name: 'sleeping'}, function(err, item) { //gives the first matching one, singular not an array
+  // Item.findByID({req.params.itemID}, function(err, item) {
+  //   console.log('item:', item);
+  //   res.send(item);
+  });
+});
+
 module.exports = router;

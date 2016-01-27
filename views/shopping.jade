@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+
+  .container-fluid
+    #formEntry.row
+      form.form-inline
+        .form-group
+          label(for='inputTask') Item Name
+          input#nameEntry.form-control(type='name', placeholder='Enter Item', value='', required='')
+        .form-group
+          label(for='inputDate') Description
+          input#dateEntry.form-control(type='date', placeholder='Enter Description', value='')
+        .form-group
+          label.amount(for='inputAmount') Price
+          .input-group $
+          input#priceEntry.form-control(type='number', placeholder='Enter Price', value='', step='0.01', required='')
+        .btn-group
+          button#catEntry.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+            | Add Category
+            span.caret
+          ul#catDropDown.dropdown-menu
+            li.dropList(selected='selected', value='Art')
+              a(href='#') Art
+            li.dropList(selected='selected', value='Home')
+              a(href='#')
+              | Home
+            li.dropList(selected='selected')
+              a(href='#') Booze
+            li.dropList(selected='selected', value='Clothes')
+              a(href='#') la ropa
+      button#newEntry.btn.btn-success Add New Entry

@@ -1,5 +1,32 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  .container-fluid
+      
+    #list.container
+      h2 Buy Things Now!
+      #total
+      .table-reponsive
+        table.table
+          thead
+            tr
+              th#titleN Item Name
+              th#titleD Description
+              th#titleP Price
+              th#titleP
+                | Total/th>
+              th#titleCat Category
+              th#titleRem Remove Item
+          tbody#shopTable
+            tr#template
+              td.name
+              td.desc
+              td.price
+              td.total
+              td.cat
+              td
+                button#trash.btn.btn-default(type='button')
+                  span.glyphicon.glyphicon-trash
+  block scripts  
+    script(src='main.js')
