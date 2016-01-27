@@ -1,0 +1,15 @@
+//dynamic content in h4e indiv. partial file
+extends layout
+
+block content
+  .container-fluid
+    a(href='/') Home Page
+    h2 Full Contact Info #{title}
+    h4 Name #{contact.name}
+    h4 Email #{contact.email}
+    h4 Location #{contact.location}
+    h4 Phone Number #{contact.phone}
+    h4 Facebook #{contact.face}
+
+block scripts
+  script(src='js/main.js')
