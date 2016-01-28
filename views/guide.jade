@@ -9,7 +9,6 @@ block content
       
     #list.container
       h2 Buy Things Now!
-      button#newEntry.btn.btn-success Add New Entry
       #total
       .table-reponsive
         table.table
@@ -22,8 +21,7 @@ block content
               th#titleImg Look At It
               th#titleRem Add It to Cart
           
-          tbody#addItem
-          
+          tbody#shopTable
             tr
               td Astronaut Duvet
               td space + sleep = awesome
@@ -94,21 +92,15 @@ block content
               td
                 button#trash.btn.btn-default(type='button')
                   span.glyphicon.glyphicon-shopping-cart
-            //- each item in items
-            //-   tr
-            //-     td= item.name
-            //-     td= Item.email
-            //-     td= Item.location
-            //-     td= Item.phone
-            //-     td= Item.face
-            //- tr#template
-            //-   td.name
-            //-   td.desc
-            //-   td.price
-            //-   td.cat
-            //-   td.img
-            //-   td
+          
+            tr#template
+              td.name
+              td.desc
+              td.price
+              td.cat
+              td.img
+              td
             //-     button#trash.btn.btn-default(type='button')
             //-       span.glyphicon.glyphicon-shopping-cart
 block scripts  
-  script(src='js/main.js')
+  script(src='main.js')
