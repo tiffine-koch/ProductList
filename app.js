@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 
 console.log('process.env:', process.env);
 
-var mongoURL = process.env.MONGOLAB_URI || 'mongodb://localhost/herokutest';
+var mongoURL = process.env.MONGOLAB_URI || 'mongodb://localhost/shopping';
 var mongoose = require('mongoose');
 
 mongoose.connect(mongoURL, function(err) {
