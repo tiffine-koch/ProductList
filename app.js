@@ -7,12 +7,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// mongoose.connect('mongodb://localhost/testing', function(err) {
+//   if (err) return console.log('mongo err:', err);
+//   console.log('Connected to MongoDB');
+// });
+
+console.log('process.env:', process.env);
+
+var mongoURL = process.env.MONGOLAB_URI || 'mongodb://localhost/herokutest';
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/testing', function(err) {
-  if (err) return console.log('mongo err:', err);
-
-  console.log('Connected to MongoDB');
+mongoose.connect(mongoURL, function(err) {
+  console.log(err || `Connected to MongoDB: ${mongoURL}`);
 });
 
 var app = express();
