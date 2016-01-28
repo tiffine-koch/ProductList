@@ -1,5 +1,8 @@
 extends layout
 
+block styles
+  link(rel='stylesheet', href='/css/splash.css')
+
 block content
   h1= title
 
@@ -32,4 +35,7 @@ block content
             li.dropList(selected='selected', value='Clothes')
               a(href='#') la ropa
 
-    button#newEntry.btn.btn-danger Add New Contact              
+    a#newEntry.btn.btn-danger(href='/', role='button') Add New Item Listing
+
+block scripts  
+  script(src='js/admin.js')

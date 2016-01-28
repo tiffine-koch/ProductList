@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
 app.use('/items', require('./routes/items'));
-app.use('/addItem',require('./routes/addItem'));
+app.use('/admin',require('./routes/admin'));
 app.use('/splash',require('./routes/splash'));
 
 // catch 404 and forward to error handler

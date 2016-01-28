@@ -6,11 +6,12 @@ block content
     .page-header
       h1= title
         small.words      buy cool things
+      br
+      a.btn.btn-success(href='/admin', role='button') Admin
       
     #list.container
       h2 Buy Things Now!
-      button#newEntry.btn.btn-success Add New Entry
-      #total
+      #total Your total is: 0.00
       .table-reponsive
         table.table
           thead
@@ -20,95 +21,115 @@ block content
               th#titleP Price
               th#titleCat Category
               th#titleImg Look At It
-              th#titleRem Add It to Cart
-          
-          tbody#addItem
-          
-            tr
-              td Astronaut Duvet
-              td space + sleep = awesome
-              td 175.00
-              td Home
-              td
-                img(src='img/astronaut.jpg', alt='')
-              td
-                button#trash.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-shopping-cart
-            tr
-              td Beanie
-              td single ladies luv cats
-              td 20.00
-              td la ropa
-              td
-                img(src='img/beanie.jpg', alt='')
-              td
-                button#trash.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-shopping-cart
-            tr
-              td Phone Case
-              td boy tears phone cover
-              td 30.00
-              td la ropa
-              td
-                img(src='img/iphone.jpg', alt='')
-              td
-                button#trash.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-shopping-cart
-            tr
-              td Regrettable Tattoos
-              td bad decisions = bad art
-              td -10000.00
-              td Art
-              td
-                img(src='img/Tattoo.jpg', alt='')
-              td
-                button#trash.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-shopping-cart
-            tr
-              td Tea Time
-              td grown up shot glasses
-              td 60.00
-              td Home
-              td
-                img(src='img/shots.jpg', alt='')
-              td
-                button#trash.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-shopping-cart
-            tr
-              td One Can of Rainier at Happy Hour
-              td ...even tho you can afford better beer
-              td 2.00
-              td Booze
-              td
-                img(src='img/rainier.gif', alt='')
-              td
-                button#trash.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-shopping-cart
-            tr
-              td Xmas Sweater
-              td fun.times.
-              td 70.00
-              td la ropa
-              td
-                img(src='img/sweater.jpg', alt='')
-              td
-                button#trash.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-shopping-cart
-            //- each item in items
-            //-   tr
-            //-     td= item.name
-            //-     td= Item.email
-            //-     td= Item.location
-            //-     td= Item.phone
-            //-     td= Item.face
-            //- tr#template
-            //-   td.name
-            //-   td.desc
-            //-   td.price
-            //-   td.cat
-            //-   td.img
-            //-   td
-            //-     button#trash.btn.btn-default(type='button')
-            //-       span.glyphicon.glyphicon-shopping-cart
+              th#titleBuy Buy It
+              th#titleRem Delete It
+          tbody#itemList
+            each item in items
+              tr(data-id= item._id)
+                td= item.name
+                td= item.description
+                td= item.price
+                td= item.category
+                td
+                  img(src= 'item.img')
+                td
+                  button#cart.btn.btn-default(type='button')
+                    span.glyphicon.glyphicon-shopping-cart
+                td  
+                  button#trash.btn.btn-default(type='button')
+                    span.glyphicon.glyphicon-trash
+              //- 
+              //- tr
+              //-   td Astronaut Duvet
+              //-   td space + sleep = awesome
+              //-   td 175.00
+              //-   td Home
+              //-   td
+              //-     img(src='img/astronaut.jpg', alt='')
+              //-   td
+              //-     button#cart.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-shopping-cart
+              //-   td  
+              //-     button#trash.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-trash
+              //- tr
+              //-   td Beanie
+              //-   td single ladies luv cats
+              //-   td 20.00
+              //-   td la ropa
+              //-   td
+              //-     img(src='img/beanie.jpg', alt='')
+              //-   td
+              //-     button#cart.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-shopping-cart
+              //-   td    
+              //-     button#trash.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-trash  
+              //- tr
+              //-   td Phone Case
+              //-   td boy tears phone cover
+              //-   td 30.00
+              //-   td la ropa
+              //-   td
+              //-     img(src='img/iphone.jpg', alt='')
+              //-   td
+              //-     button#cart.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-shopping-cart
+              //-   td    
+              //-     button#trash.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-trash       
+              //- tr
+              //-   td Regrettable Tattoos
+              //-   td bad decisions = bad art
+              //-   td -10000.00
+              //-   td Art
+              //-   td
+              //-     img(src='img/Tattoo.jpg', alt='')
+              //-   td
+              //-     button#cart.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-shopping-cart
+              //-   td    
+              //-     button#trash.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-trash        
+              //- tr
+              //-   td Tea Time
+              //-   td grown up shot glasses
+              //-   td 60.00
+              //-   td Home
+              //-   td
+              //-     img(src='img/shots.jpg', alt='')
+              //-   td
+              //-     button#cart.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-shopping-cart
+              //-   td    
+              //-     button#trash.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-trash          
+              //- tr
+              //-   td One Can of Rainier at Happy Hour
+              //-   td ...even tho you can afford better beer
+              //-   td 2.00
+              //-   td Booze
+              //-   td
+              //-     img(src='img/rainier.gif', alt='')
+              //-   td
+              //-     button#cart.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-shopping-cart
+              //-   td    
+              //-     button#trash.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-trash      
+              //- tr
+              //-   td Xmas Sweater
+              //-   td fun.times.
+              //-   td 70.00
+              //-   td la ropa
+              //-   td
+              //-     img(src='img/sweater.jpg', alt='')
+              //-   td
+              //-     button#cart.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-shopping-cart
+              //-   td    
+              //-     button#trash.btn.btn-default(type='button')
+              //-       span.glyphicon.glyphicon-trash          
+
 block scripts  
   script(src='js/main.js')

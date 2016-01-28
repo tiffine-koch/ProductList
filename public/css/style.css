@@ -6,3 +6,19 @@ body {
 a {
   color: #00B7FF;
 }
+
+#addEntry {
+  margin-right: 400px;
+}
+
+.page-header {
+  color: #ff8080;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+th:hover {
+  color: red;
+}
